@@ -1,0 +1,29 @@
+{
+  "name": "tweet-stats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tweet-stats.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --compilers js:babel/register --recursive ./tests/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scup/tweet-stats.git"
+  },
+  "keywords": [
+    "twitter",
+    "firehose",
+    "metric",
+    "statistic",
+    "generator"
+  ],
+  "author": "SCUP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scup/tweet-stats/issues"
+  },
+  "homepage": "https://github.com/scup/tweet-stats#readme"
+}
