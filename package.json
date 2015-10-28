@@ -25,5 +25,14 @@
   "bugs": {
     "url": "https://github.com/scup/tweet-stats/issues"
   },
-  "homepage": "https://github.com/scup/tweet-stats#readme"
+  "homepage": "https://github.com/scup/tweet-stats#readme",
+  "dependencies": {
+    "twit": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel": "^5.8.29",
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.2"
+  }
 }
