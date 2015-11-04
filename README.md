@@ -15,3 +15,25 @@ var credentials = {
 };
 var tweetStats = new TweetStats(credentials);
 ``
+
+## Filter
+``javascript
+tweetStats.filter("hello world");
+``
+
+## Filter
+``javascript
+
+/*
+statsJson = {
+	total : 100,
+	start : #{timestamp},
+	end : #{timestamp}
+};
+*/
+tweetStats.onStats(function(statsJson){
+
+	...
+	
+});
+``
