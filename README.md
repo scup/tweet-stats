@@ -1,12 +1,12 @@
 # Tweet Stats
 
 ## Import Module
-``javascript
+```javascript
 var TweetStats = module('tweet-stats');
-``
+```
 
 ## Authentication
-``javascript
+```javascript
 var credentials = {
   consumer_key: '...',
   consumer_secret: '...',
@@ -14,15 +14,15 @@ var credentials = {
   access_token_secret: '...'
 };
 var tweetStats = new TweetStats(credentials);
-``
+```
 
 ## Filter
-``javascript
+```javascript
 tweetStats.filter("hello world");
-``
+```
 
 ## Filter
-``javascript
+```javascript
 
 /*
 statsJson = {
@@ -36,4 +36,4 @@ tweetStats.onStats(function(statsJson){
 	...
 	
 });
-``
+```

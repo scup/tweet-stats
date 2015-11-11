@@ -14,7 +14,8 @@ describe("TweetStats", () => {
           let mockTwit = sinon.mock(Twit.prototype);
           let expectTwit = mockTwit
             .expects("stream")
-            .once().withArgs(
+            .once()
+            .withArgs(
               'statuses/filter',
               { track: wordFilter }
             );
@@ -34,7 +35,7 @@ describe("TweetStats", () => {
 
           //Then
           expectTwit.verify();
-
+          mockTwit.restore();
         });
 
 
@@ -42,32 +43,34 @@ describe("TweetStats", () => {
 
     describe("onStats", () => {
         
-        it('Should send json correctly', () => {
+        it('Should send json correctly', (done) => {
 
           //Given
           let wordFilter = 'Hello World';
-          let spyTwit = sinon.spy(Twit.prototype);
-          let expectTwit = spyTwit
-            .expects("on")
-            
-
+          let streamOnStub = sinon.stub();
           
-          let twit = new Twit({
-            consumer_key:         'aaaaa',
-            consumer_secret:      'bbbbb',
-            access_token:         'ccccc',
-            access_token_secret:  'ddddd'
-          });
+          let streamStub = sinon.stub();
+          streamStub.returns({on: streamOnStub});
+
+          let twit = {
+            filter : function(){},
+            stream : streamStub
+          };
 
           //When
           let tweetStats = new TweetStats(twit);
-          tweetStats.onStats(function(json){
-
+          tweetStats.filter(wordFilter);
+          tweetStats.onStats(function(json){ 
+            chai.assert.equal(3, json.count);
+            done();
           });
 
 
           //Then
-          expectTwit.verify();
+          let tweetCallback = streamOnStub.args[0][1];
+          tweetCallback({});
+          tweetCallback({});
+          tweetCallback({});
 
         });
 
