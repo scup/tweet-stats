@@ -13,7 +13,7 @@ var credentials = {
   access_token: '...',
   access_token_secret: '...'
 };
-var tweetStats = new TweetStats(credentials);
+var tweetStats = new TweetStats(credentials, interval);
 ```
 
 ## Filter
@@ -21,7 +21,7 @@ var tweetStats = new TweetStats(credentials);
 tweetStats.filter("hello world");
 ```
 
-## Filter
+## Get Stats
 ```javascript
 
 /*
